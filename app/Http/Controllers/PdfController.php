@@ -11,7 +11,7 @@ class PdfController extends Controller
 
 		$pdf = app()->make('dompdf.wrapper');
 		$pdf->loadHTML('<h1>Test</h1>');
-		$pdf->loadFile(base_path().'/resources/views/tes.html');
+		$pdf->loadFile(base_path().'/resources/views/cv.html');
 		return $pdf->stream();
 	}
 }
