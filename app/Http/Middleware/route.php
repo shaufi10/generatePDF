@@ -64,7 +64,8 @@ $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], functi
     $app->get('job/{jobid}/{lat}/{lon}','JobController@getJobDetailsLatLon');
     $app->post('job/share','JobController@shareJob');
 
-	// JOB related API, for Development purposes
+
+	  // JOB related API, for Development purposes
     $app->get('devjob/{jobid}','JobController@getJobDetailsDev');
 
     $app->get('devjob/{jobid}/{lat}/{lon}','JobController@getJobDetailsLatLonDev');
@@ -73,14 +74,14 @@ $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], functi
 
     $app->get('devjob/internaljob/{userid}','JobController@getJobInternal');
 
-	// CHAT related API
+	  // CHAT related API
     $app->get('chat/group/{userid}/{start}/{limit}','ChatController@getCaller');
 
 	  $app->get('chat/detail/{job_application_id}/{last_ts}/{limit}', 'ChatController@getChat');
 
     $app->post('chat','ChatController@postChat');
 
-	// BOOK
+    // BOOK
     $app->get('book','BookController@index');
 
     $app->get('book/{id}','BookController@getbook');
@@ -121,4 +122,7 @@ $app->group(['prefix' => 'api/v1','namespace' => 'App\Http\Controllers'], functi
 
     $app->get('/', function() use ($app) {
     return "This is Lumen RESTful API By CoderExample (https://coderexample.com)";
+
+    //PDF
+    $app->get('/','PdfController@generatePdf');
 });
