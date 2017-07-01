@@ -185,8 +185,6 @@ class UserController extends Controller {
 
 	}
 
-
-
 	public function getDocs($userid) {
 		$docs = JobSeekerDoc::where([['seeker_id', $userid],['n_status',1]])->get();
 		return ['data' => $docs];
@@ -199,7 +197,7 @@ class UserController extends Controller {
 			return $this->error("Invalid document", 400);
 		}
 		$onedoc -> n_status = 0;
-		$onedoc -> save();
+		$onedoc -> save(
 		return ['data' => $onedoc -> id];
 	}
 
